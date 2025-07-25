@@ -1,0 +1,19 @@
+{
+  "name": "dine-desk--backend",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "priyanshu",
+  "license": "ISC",
+  "description": "dine desk",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
