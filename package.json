@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "dine desk",
   "dependencies": {
+    "dotenv": "^17.2.1",
     "express": "^4.18.2",
     "mongoose": "^8.16.4"
   },
