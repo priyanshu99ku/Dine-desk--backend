@@ -1,20 +1,26 @@
+require('dotenv').config();
 const express = require('express');
-const connectDB=require('./config/DataBase');
+const connectDB = require('./config/DataBase');
+
+const restaurantAuthRouter = require('./routes/restaurantAuth');
 
 const app = express();
 app.use(express.json());
 
-app.post('/signuprestaurant', async (req, res) => {
-    const { name, address, contacts } = req.body;
-    
+// Mount routes
+app.use('/api/restaurant', restaurantAuthRouter);
+
 const startServer = async () => {
-    try {
-        await connectDB(); 
-        app.listen(3000, () => {
-            console.log('Server is running on port 3000');
-        });
-    } catch (err) {
-        console.error('Failed to start server:', err);
-    }
+  try {
+    await connectDB();
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  } catch (err) {
+    console.error('Failed to start server:', err);
+    process.exit(1);
+  }
 };
+
 startServer();
